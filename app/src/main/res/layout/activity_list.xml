@@ -12,14 +12,16 @@
         android:id="@+id/memoList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#fff4ea"
         android:layout_weight="9"/>
 
     <Button
         android:id="@+id/newButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="新規作成する"
+        android:layout_weight="0.1"
+        android:background="#ffa500"
+        android:text="新規作成する\n（メモを長押しで削除）"
         />
 
 </LinearLayout>

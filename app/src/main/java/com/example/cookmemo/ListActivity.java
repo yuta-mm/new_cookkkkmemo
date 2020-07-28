@@ -32,7 +32,7 @@ public class ListActivity extends AppCompatActivity {
             helper = new MemoOpenHelper(ListActivity.this);
         }
         // メモリストデータを格納する変数
-        ArrayList<HashMap<String, String>> memoList = new ArrayList<>();
+        final ArrayList<HashMap<String, String>> memoList = new ArrayList<>();
         // データベースを取得する
         SQLiteDatabase db = helper.getWritableDatabase();
         try {
@@ -66,7 +66,7 @@ public class ListActivity extends AppCompatActivity {
 
         // Adapter生成
         // ToDo:tmpListを正式なデータと入れ替える
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this,
+        final SimpleAdapter simpleAdapter = new SimpleAdapter(this,
                 memoList, // 使用するデータ
                 android.R.layout.simple_list_item_2, // 使用するレイアウト
                 new String[]{"body","id"}, // どの項目を
@@ -98,6 +98,36 @@ public class ListActivity extends AppCompatActivity {
                 intent.putExtra("id", isStr);
                 // Activity起動
                 startActivity(intent);
+            }
+        });
+
+        // リスト項目を長押しクリックした時の処理
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+            /**
+             * @param parent ListView
+             * @param view 選択した項目
+             * @param position 選択した項目の添え字
+             * @param id 選択した項目のID
+             */
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                // 選択されたビューを取得 TwoLineListItemを取得した後、text2の値を取得する
+                TwoLineListItem two = (TwoLineListItem)view;
+                TextView idTextView = (TextView)two.getText2();
+                String idStr = (String) idTextView.getText();
+
+                // 長押しした項目をデータベースから削除
+                SQLiteDatabase db = helper.getWritableDatabase();
+                try {
+                    db.execSQL("DELETE FROM MEMO_TABLE WHERE uuid = '"+ idStr +"'");
+                } finally {
+                    db.close();
+                }
+                // 長押しした項目を画面から削除
+                memoList.remove(position);
+                simpleAdapter.notifyDataSetChanged();
+
+                // trueにすることで通常のクリックイベントを発生させない
+                return true;
             }
         });
 

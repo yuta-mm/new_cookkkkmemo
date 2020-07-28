@@ -17,6 +17,7 @@
         android:layout_weight="80"
         android:gravity="top|left"
         android:inputType="textMultiLine"
+        android:background="#fff4ea"
         android:lines="50"
         android:textSize="20sp" />
 
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="#ffd6ad"
         android:text="タイマー" />
 
     <LinearLayout
@@ -44,6 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#ffadad"
             android:text="大さじ" />
 
         <Button
@@ -51,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#ffffad"
             android:text="小さじ" />
     </LinearLayout>
 
@@ -71,6 +75,8 @@
             android:id="@+id/seekBar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:progressTint="#696969"
+            android:thumbTint="#696969"
             android:layout_weight="0.5" />
     </LinearLayout>
 
@@ -91,6 +97,8 @@
             android:id="@+id/seekBar2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:progressTint="#ff4500"
+            android:thumbTint="#ff4500"
             android:layout_weight="0.5" />
     </LinearLayout>
 
@@ -105,6 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#ffd6ad"
             android:text="メモを保存"
             />
 

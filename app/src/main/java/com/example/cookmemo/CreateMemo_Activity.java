@@ -196,11 +196,13 @@ public class CreateMemo_Activity extends AppCompatActivity {
                     //ツマミがリリースされた時に呼ばれる
                     @Override
                     public void onStopTrackingTouch(SeekBar seekBar) {
-                        EditText editText;
-                        editText = (EditText) findViewById(R.id.body);
-                        String text1 = editText.getText().toString();
-                        TextView textView = (TextView) findViewById(R.id.body);
-                        textView.setText(text1 + Q + "\n");
+                        if (Q != null) {
+                            EditText editText;
+                            editText = (EditText) findViewById(R.id.body);
+                            String text1 = editText.getText().toString();
+                            TextView textView = (TextView) findViewById(R.id.body);
+                            textView.setText(text1 + Q + "\n");
+                        }
                     }
 
                 });
@@ -232,18 +234,16 @@ public class CreateMemo_Activity extends AppCompatActivity {
                     //ツマミがリリースされた時に呼ばれる
                     @Override
                     public void onStopTrackingTouch(SeekBar seekBar2) {
-                        EditText editText;
-                        editText = (EditText) findViewById(R.id.body);
-                        String text1 = editText.getText().toString();
-                        TextView textView = (TextView) findViewById(R.id.body);
-                        textView.setText(text1 + "火加減" + Q + "\n");
+                        if (Q != null) {
+                            EditText editText;
+                            editText = (EditText) findViewById(R.id.body);
+                            String text1 = editText.getText().toString();
+                            TextView textView = (TextView) findViewById(R.id.body);
+                            textView.setText(text1 + "火加減" + Q + "\n");
+                        }
                     }
 
                 });
-
-
-
-
 
 
         /**
