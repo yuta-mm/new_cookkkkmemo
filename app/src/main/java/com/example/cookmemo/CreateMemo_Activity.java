@@ -37,11 +37,14 @@ public class CreateMemo_Activity extends AppCompatActivity {
 
     String[] dropdownItems = {
             "調味料",
+            "胡椒",
             "砂糖",
             "塩",
-            "酢",
             "醤油",
-            "味噌"
+            "白だし",
+            "酢",
+            "みりん",
+            "料理酒"
     };
 
     @Override
